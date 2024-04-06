@@ -11,27 +11,22 @@
 </head>
 <body style="margin: 0; overflow: hidden;">
     <!-- AR.jsを使用したARシーンを作成 -->
-    <a-scene embedded arjs vr-mode-ui="enabled: false">
+    <a-scene embedded arjs>
         <!-- カメラの設定 -->
         <a-entity camera gps-camera rotation-reader></a-entity>
 
         <!-- GPS情報を使用して現在位置にARコンテンツを表示する -->
         <a-entity gps-entity-place="latitude: 38.1387; longitude: 140.2836;">
             <!-- ランダムな位置にARオブジェクトを表示 -->
-            <a-entity position="0 1.5 0">
-                <a-box material="color: red;" visible="false"></a-box>
-                <a-sphere material="color: blue;" visible="false"></a-sphere>
+            <a-entity id="arObjects">
+                <a-box material="color: red;"></a-box>
+                <a-sphere material="color: blue;"></a-sphere>
                 <!-- 他のARオブジェクトをここに追加する -->
             </a-entity>
         </a-entity>
     </a-scene>
 
     <script>
-        // ARオブジェクトの種類をランダムに選択する
-        var arObjects = document.querySelectorAll('a-entity position');
-        var randomIndex = Math.floor(Math.random() * arObjects.length);
-        arObjects[randomIndex].setAttribute('visible', 'true');
-
         // GPS情報から1メートル以内のランダムな位置を生成する関数
         function getRandomPosition(latitude, longitude) {
             var radiusInDegrees = 0.00001; // 1メートルの範囲
@@ -47,12 +42,22 @@
             return newPosition;
         }
 
-        // 緯度経度からランダムな位置を生成し、ARオブジェクトの位置を更新する
-        var gpsEntity = document.querySelector('a-entity[gps-entity-place]');
-        var latitude = parseFloat(gpsEntity.getAttribute('gps-entity-place').latitude);
-        var longitude = parseFloat(gpsEntity.getAttribute('gps-entity-place').longitude);
-        var randomPosition = getRandomPosition(latitude, longitude);
-        gpsEntity.setAttribute('gps-entity-place', 'latitude: ' + randomPosition.latitude + '; longitude: ' + randomPosition.longitude);
+        // ランダムな位置にARオブジェクトを表示する関数
+        function placeARObjects() {
+            var gpsEntity = document.querySelector('a-entity[gps-entity-place]');
+            var latitude = parseFloat(gpsEntity.getAttribute('gps-entity-place').latitude);
+            var longitude = parseFloat(gpsEntity.getAttribute('gps-entity-place').longitude);
+            var randomPosition = getRandomPosition(latitude, longitude);
+            var arObjects = document.getElementById('arObjects').children;
+
+            for (var i = 0; i < arObjects.length; i++) {
+                var arObject = arObjects[i];
+                arObject.setAttribute('gps-entity-place', 'latitude: ' + randomPosition.latitude + '; longitude: ' + randomPosition.longitude);
+            }
+        }
+
+        // ARオブジェクトの配置を行う
+        placeARObjects();
     </script>
 </body>
 </html>
