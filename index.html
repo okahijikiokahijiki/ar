@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0 viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Location-based AR</title>
     <!-- A-FrameとAR.jsのスクリプトを読み込む -->
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-    <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/2.0.8/aframe/build/aframe-ar.js"></script>
+    <!-- 新しいバージョンのAR.jsを読み込む -->
+    <script src="https://cdn.jsdelivr.net/npm/ar.js@3.0.0/aframe/build/aframe-ar.js"></script>
 </head>
 <body style="margin: 0; overflow: hidden;">
     <!-- AR.jsを使用したARシーンを作成 -->
@@ -17,7 +18,7 @@
         <!-- GPS情報を使用して現在位置にARコンテンツを表示する -->
         <a-entity gps-entity-place="latitude: 38.1387; longitude: 140.2836;">
             <!-- 地面 -->
-            <a-plane position="0 0 0" rotation="-90 0 0" width="100" height="100" color="#CCC"></a-plane>
+            <a-plane position="0 0 0" rotation="-90 0 0" width="1" height="1" color="#FFFF00"></a-plane>
             
             <!-- ARオブジェクト -->
             <a-box position="0 1.5 0" material="color: red;"></a-box>
