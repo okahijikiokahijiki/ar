@@ -7,18 +7,10 @@
 <script type='text/javascript' src='https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js'></script>
 </head>
 <body>
-<a-scene vr-mode-ui='enabled: false' 
-    arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false' 
-    renderer='antialias: true; alpha: true'>
+<a-scene vr-mode-ui='enabled: false' arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false' renderer='antialias: true; alpha: true'>
     <a-camera gps-new-camera='gpsMinDistance: 5'></a-camera>
-    <a-entity gltf-model="#qa" rotation="0 0 0" 
-        gps-new-entity-place="latitude: 38.1387; longitude: 140.2836" scale="10 10 10">
-    </a-entity>
-    <a-assets>
-        <!-- 3Dモデルを読み込む material='color: red' geometry='primitive: box'  logarithmicDepthBuffer: true　-->
-        <a-asset-item id="qa" src="./qa.glb" scale="1 1 1"></a-asset-item>
-    </a-assets>
-        <a-entity ></a-entity>
+    <a-entity gltf-model="#qa" rotation="0 0 0" gps-new-entity-place="latitude: 38.763596; longitude: 140.304307" scale="10 10 10"></a-entity>
+<a-assets> <a-asset-item id="qa" src="./qa.glb" scale="1 1 1"></a-asset-item> </a-assets> 
 </a-scene>
 </body>
 </html>
