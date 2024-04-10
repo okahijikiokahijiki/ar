@@ -15,14 +15,14 @@
       arjs="sourceType: webcam; videoTexture: true; debugUIEnabled: false;"
     >
       <a-text
-        value="This content will always face you."
+        value="歌映♥"
         look-at="[gps-camera]"
         scale="120 120 120"
         gps-entity-place="latitude: 38.13867; longitude: 140.28368;"
       ></a-text>
         <a-assets>
             <!-- GLBモデルの読み込み -->
-            <a-asset-item id="animated-asset" src="asset.glb"></a-asset-item>
+            <a-asset-item id="animated-asset" src="qa.glb"></a-asset-item>
         </a-assets>
 
         <!-- GLBモデルの表示 -->
@@ -33,16 +33,8 @@
             scale="3.5487131185227585 3.5487131185227585 3.5487131185227585"
             gps-entity-place="latitude: 38.13867052081499; longitude: 140.28367961019796;"
         ></a-entity>
-
-        <!-- 青い球体の表示 -->
-        <a-sphere
-            color="blue"
-            position="0 0 0"
-            radius="0.25"
-            gps-entity-place="latitude: 38.1387; longitude: 140.2836; altitude: 0;"
-        ></a-sphere>
       
-      <a-camera gps-camera rotation-reader position="0 1.6 0"> </a-camera>
+      <a-camera gps-camera rotation-reader position="0 0 0"> </a-camera>
     </a-scene>
   </body>
 </html>
