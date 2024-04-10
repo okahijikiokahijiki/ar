@@ -14,12 +14,20 @@
       vr-mode-ui="enabled: false"
       arjs="sourceType: webcam; videoTexture: true; debugUIEnabled: false;"
     >
-      <a-text
-        value="かえ！"
-        look-at="[gps-camera]"
-        scale="120 120 120"
-        gps-entity-place="latitude: 38.13867; longitude: 140.28368;"
-      ></a-text>
+  <a-text
+  position="300 100 -450"
+  rotation="-60 0 0"
+  letterSpacing="10"
+  align="center"
+  value="かえ！"
+  look-at="[gps-camera]"
+  color="red"
+  font="noto-sans-cjk-jp-msdf.json"
+  font-image="noto-sans-cjk-jp-msdf.png"
+  negate="false"
+  scale="500 500 500"
+  ps-entity-place="latitude: 38.13867; longitude: 140.28368;">
+  </a-text>
         <a-assets>
             <!-- GLBモデルの読み込み -->
             <a-asset-item id="animated-asset" src="asset.glb"></a-asset-item>
