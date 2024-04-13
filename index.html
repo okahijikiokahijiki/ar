@@ -13,14 +13,14 @@
     <a-scene
       vr-mode-ui="enabled: false"
       arjs="sourceType: webcam; videoTexture: true; debugUIEnabled: false;"
-    visible="false"
-  distance="10">
+    >
   <a-text
   position="0 0 -50"
   rotation="0 0 0"
   letterSpacing="50"
   align="center"
   value="KAE!"
+  look-at="[gps-camera]"
   color="blue"
   negate="true"
   scale="50 50 50"
@@ -33,6 +33,7 @@
   letterSpacing="50"
   align="center"
   value="HELLO KAE!"
+  look-at="[gps-camera]"
   color="pink"
   negate="true"
   scale="40 40 40"
@@ -46,6 +47,7 @@
   letterSpacing="50"
   align="center"
   value="HELLO QA!"
+  look-at="[gps-camera]"
   color="green"
   negate="true"
   scale="60 60 60"
@@ -59,6 +61,7 @@
   letterSpacing="50"
   align="center"
   value="KAE! KAE!"
+  look-at="[gps-camera]"
   color="yellow"
   negate="true"
   scale="50 50 50"
@@ -73,6 +76,7 @@
   letterSpacing="50"
   align="center"
   value="HELLO QA,KAE,MAMA!"
+  look-at="[gps-camera]"
   color="yellow"
   negate="true"
   scale="45 45 45"
@@ -81,7 +85,7 @@
   visible="false"
   distance="10">
   </a-text>       
-      <a-camera gps-camera rotation-reader position="0 0 0"> </a-camera>
+<a-camera gps-camera="minDistance:30; maxDistance:100" rotation-reader> </a-camera>
     </a-scene>
   </body>
 </html>
